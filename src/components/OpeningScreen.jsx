@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -9,6 +9,25 @@ const OpeningScreen = ({ onOpen }) => {
     // Extract the 'to' parameter from the URL query string
     const queryParams = new URLSearchParams(location.search);
     const recipient = queryParams.get('to');
+
+    useEffect(() => {
+        // Preload images for the main gallery to ensure smooth experience
+        const imagesToPreload = [
+            '/images/1.webp',
+            '/images/2.webp',
+            '/images/3.webp',
+            '/images/4.webp',
+            '/images/5.webp',
+            '/images/6.webp',
+            '/images/7.webp',
+            '/images/8.webp',
+        ];
+
+        imagesToPreload.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, []);
 
     const handleOpen = () => {
         onOpen();
