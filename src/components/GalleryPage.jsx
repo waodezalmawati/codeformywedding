@@ -36,7 +36,7 @@ const GalleryPage = () => {
                         initial={{ opacity: 0, filter: 'blur(10px)' }}
                         whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                         viewport={{ once: true, amount: 0.1 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                         style={{
                             width: '100%',
                             display: 'flex',
